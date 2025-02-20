@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lainisha Sacco Society Ltd - Home</title>
+    <!-- Meta Tags for SEO and Social Media -->
+    <meta name="description" content="Lainisha Sacco Society Ltd - Your trusted financial partner. Offering savings, loans, and financial solutions to empower your socio-economic growth.">
+    <meta name="keywords" content="Lainisha Sacco, savings, loans, financial services, Kenya">
+    <meta name="author" content="Lainisha Sacco Society Ltd">
+    <meta property="og:title" content="Lainisha Sacco Society Ltd - Home">
+    <meta property="og:description" content="Welcome to Lainisha Sacco Society Ltd. We provide financial solutions to promote socio-economic growth.">
+    <meta property="og:image" content="photos/logo.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="photos/favicon.png">
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light gray background for the body */
+        }
+
+        /* Header styling */
+        .header {
+            background-color: #28a745; /* Green background for header */
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center logo */
+        }
+
+        /* Menu styling */
+        .menu {
+            background-color: #28a745; /* Green background for menu */
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .menu a {
+            display: inline-block;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+        }
+
+        .menu a:hover {
+            background-color: #ffcc00; /* Yellow hover effect */
+            color: white;
+        }
+
+        /* Content Section */
+        .content {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Left section with text */
+        .left-section {
+            width: 48%;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        /* Heading and paragraphs */
+        h1 {
+            color: #28a745; /* Green color for headings */
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #333; /* Dark gray text for paragraphs */
+        }
+
+        /* Right section with images */
+        .right-section {
+            width: 48%;
+            padding: 20px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Image slider container */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 300px; /* Ensure the slider doesn't overlap text */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        .slider {
+            display: flex;
+            width: 300%; /* 100% for each image */
+            animation: slide 15s infinite; /* Adjust duration to 15s for slower transition */
+        }
+
+        .slider img {
+            width: 33.33%; /* Each image takes up one-third of the container */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Animation for sliding images */
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(0); } /* First image stays for 3 seconds */
+            25% { transform: translateX(-100%); } /* Transition to second image */
+            45% { transform: translateX(-100%); } /* Second image stays for 3 seconds */
+            50% { transform: translateX(-200%); } /* Transition to third image */
+            70% { transform: translateX(-200%); } /* Third image stays for 3 seconds */
+            100% { transform: translateX(0); } /* Reset to first image */
+        }
+
+        /* Pause/Play Button for Slider */
+        #pauseButton {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #pauseButton:hover {
+            background-color: #218838;
+        }
+
+        /* Contact Information */
+        .contact-info {
+            margin-top: 20px;
+            text-align: center;
+            background-color: #e2f4e1; /* Light green background for the contact section */
+            padding: 15px;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            margin: 5px 0;
+            color: #333; /* Dark gray for contact text */
+        }
+
+        .contact-info a {
+            color: #28a745; /* Green color for links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: #ffcc00; /* Yellow color on hover for links */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #ffcc00;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .slider-container {
+                height: 200px; /* Adjust height for smaller screens */
+            }
+
+            .content {
+                flex-direction: column; /* Stack sections vertically on small screens */
+            }
+
+            .left-section, .right-section {
+                width: 100%; /* Full width for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Logo -->
+    <header class="header">
+        <img src="photos/logo.png" alt="Lainisha Sacco Logo" class="logo">
+    </header>
+
+    <!-- Top menu -->
+    <nav class="menu">
+        <a href="home.html">Home</a> 
+        <a href="after.html">Account Activation</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <!-- Content Section -->
+    <main class="content">
+        <!-- Left Section with text -->
+        <div class="left-section">
+            <h1>Welcome to Lainisha Sacco Society Ltd</h1>
+            <p><strong>About Us:</strong> Lainisha Sacco Society Ltd, formerly known as Mwea Rice Farmers Sacco, was registered as an autonomous savings and credit organization on January 21, 1993. Over the years, we have been dedicated to enhancing the financial well-being of our members through a variety of financial services.</p>
+            <p><strong>Our Vision:</strong> To be the leading and preferred financial solutions provider.</p>
+            <p><strong>Our Mission:</strong> To pool financial resources and offer customers responsive products and services to promote their socio-economic growth through technological innovation and good corporate governance.</p>
+        </div>
+
+        <!-- Right Section with Image Slider -->
+        <div class="right-section">
+            <div class="slider-container">
+                <div class="slider">
+                    <img src="photos/pic1.png" alt="Lainisha Sacco Program 1">
+                    <img src="photos/pic2.png" alt="Lainisha Sacco Program 2">
+                    <img src="photos/pic3.png" alt="Lainisha Sacco Program 3">
+                </div>
+                <button id="pauseButton" onclick="toggleSlider()">Pause</button>
+            </div>
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <p><strong>Contact Information:</strong></p>
+                <p><strong>Head Office:</strong> P.O Box 272, Mwea, Wang'uru. Located Along Embu-Nairobi Highway, Next to KCB Bank, off Road to Wang'uru Law Courts.</p>
+                <p><strong>Phone:</strong> +254 705 492 352</p>
+                <p><strong>Email:</strong> <a href="mailto:info@lainishasacco.co.ke">info@lainishasacco.co.ke</a></p>
+                <p><strong>Working Hours:</strong></p>
+                <p>Monday to Friday: 8:00 AM - 4:00 PM</p>
+                <p>Saturday: 8:00 AM - 12:00 PM</p>
+                <p>Sunday & Public Holidays: Closed</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 Lainisha Sacco Society Ltd. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://facebook.com/lainishasacco" target="_blank">Facebook</a>
+            <a href="https://twitter.com/lainishasacco" target="_blank">Twitter</a>
+            <a href="https://linkedin.com/company/lainishasacco" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Slider Pause/Play -->
+    <script>
+        let slider = document.querySelector('.slider');
+        let isPaused = false;
+        let pauseButton = document.getElementById('pauseButton');
+
+        function toggleSlider() {
+            if (isPaused) {
+                slider.style.animationPlayState = 'running';
+                pauseButton.textContent = 'Pause';
+            } else {
+                slider.style.animationPlayState = 'paused';
+                pauseButton.textContent = 'Play';
+            }
+            isPaused = !isPaused;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lainisha Sacco Society Ltd - FAQ</title>
+    <style>
+        /* Basic styling for the FAQ page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(to right, #a8d08d, #f9e44f); /* Green to Yellow gradient */
+        }
+
+        /* Menu styling */
+        .menu {
+            background-color: #006400; /* Dark green */
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .menu a {
+            display: inline-block;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .menu a:hover {
+            background-color: #FFCC00; /* Yellow on hover */
+            color: white;
+        }
+
+        /* FAQ Container Styling */
+        .faq-container {
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .faq-container h2 {
+            text-align: center;
+            color: #006400; /* Dark green */
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .faq-item h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            background-color: #006400; /* Dark green background */
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .faq-item p {
+            font-size: 16px;
+            display: none; /* Initially hidden */
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Useful feedback section */
+        .useful-feedback {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .useful-feedback button {
+            background-color: #006400; /* Green */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .useful-feedback button:hover {
+            background-color: #FFCC00; /* Yellow on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top menu -->
+    <div class="menu">
+        <a href="home.html">Home</a>
+        <a href="after.html">Account Activation</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <!-- FAQ Content -->
+    <div class="faq-container">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">1. What is account reactivation?</h3>
+            <p>Account reactivation is the process of restoring access to a previously dormant or inactive account.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">2. How do I know if my account is dormant?</h3>
+            <p>If you haven't used your account for a long time, it may be marked as dormant. Contact us to confirm the status.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">3. How long does an account become dormant?</h3>
+            <p>Typically, an account is considered dormant after 6 months of inactivity. However, the exact period may vary depending on the rules of your SACCO.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">4. How can I reactivate my account?</h3>
+            <p>To reactivate your account, you need to fill out a reactivation form and submit it with your valid identification and a small fee.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">5. Do I need to visit the SACCO office to reactivate my account?</h3>
+            <p>No, you can submit the reactivation request online through the website. The SACCO will verify your details and reactivate your account remotely.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">6. What documents do I need to reactivate my account?</h3>
+            <p>You will need to upload a copy of your national ID, along with your signature and a completed reactivation form.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">7. How much is the reactivation fee?</h3>
+            <p>The reactivation fee is KSH 150. This fee is required to complete the reactivation process.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">8. How do I make the payment for reactivation?</h3>
+            <p>You can make the payment through mobile money or bank transfer. Further details are provided during the reactivation process.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">9. Can I reactivate my account without paying the fee?</h3>
+            <p>No, the reactivation process cannot be completed without the payment of the required fee.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">10. How long will it take to reactivate my account?</h3>
+            <p>The reactivation process usually takes up to 3 business days, depending on the verification of your details.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">11. What if I don’t remember my account number?</h3>
+            <p>If you forget your account number, you can select the option "I don't remember my account number" during the reactivation process, and we'll assist you.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">12. Can I reactivate a joint account?</h3>
+            <p>Yes, joint accounts can also be reactivated by providing the necessary details of all account holders.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">13. What happens if I don’t reactivate my dormant account?</h3>
+            <p>If you don't reactivate your dormant account, it may be permanently closed after a certain period, and any remaining balance may be forfeited according to SACCO rules.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">14. Can I withdraw from my dormant account before reactivation?</h3>
+            <p>Withdrawals are not allowed from dormant accounts until they are reactivated.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">15. What should I do if I face problems during the reactivation process?</h3>
+            <p>If you face any issues, please contact our customer support for assistance, and we will guide you through the process.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">16. How can I update my personal information before reactivating my account?</h3>
+            <p>You can update your personal information by contacting SACCO customer service or updating it online during the reactivation process.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">17. What happens after I submit the reactivation request?</h3>
+            <p>Once your request is submitted, our team will verify your information, process the reactivation, and notify you once it's completed.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">18. Is there a limit to the number of dormant accounts I can reactivate?</h3>
+            <p>No, you can reactivate as many dormant accounts as you have, as long as you follow the required procedure for each account.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">19. Can I change my SACCO branch after reactivating my account?</h3>
+            <p>Yes, you can request to transfer your account to another branch after reactivation. Please contact customer service to initiate the transfer.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">20. How do I know when my account is fully reactivated?</h3>
+            <p>You will receive a confirmation message or email once your account has been reactivated successfully.</p>
+        </div>
+
+        <!-- Useful feedback section -->
+        <div class="useful-feedback">
+            <h3>Was this information useful?</h3>
+            <button>Yes, it was helpful</button>
+            <button onclick="redirectToContact()">No, I need further assistance</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle the visibility of the answer
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling; // The <p> element containing the answer
+            if (answer.style.display === "none" || answer.style.display === "") {
+                answer.style.display = "block"; // Show the answer
+            } else {
+                answer.style.display = "none"; // Hide the answer
+            }
+        }
+
+        // Function to redirect the user to the contact section
+        function redirectToContact() {
+            window.location.href = "#contact-us"; // Redirects to the contact section on the homepage
+        }
+    </script>
+
+</body>
+</html>

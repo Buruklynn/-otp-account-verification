@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAINISHA SACCO - Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="left-section">
+        <div class="logo-container">
+            <img src="photos/logo.png" alt="Lainisha Sacco Logo" class="logo">
+            <h2>LAINISHA SACCO</h2>
+        </div>
+        <p>Join Lainisha Sacco and start your journey towards financial empowerment.</p>
+    </div>
+
+    <div class="right-section">
+        <div class="form-container">
+            <h1>Register for Lainisha Sacco</h1>
+            <form action="register_process.php" method="POST">
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="middle_name" placeholder="Middle Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <input type="text" name="id_number" placeholder="ID Number" required>
+                <input type="text" name="phone_number" placeholder="Phone Number" required>
+                <input type="text" name="place_of_residence" placeholder="Place of Residence" required>
+                <button type="submit">Register</button>
+            </form>
+            <div class="toggle-link">
+                <p>Already have an account? <a href="login.html">Login here</a></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

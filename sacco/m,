@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent form submission
+            const accountNumber = document.getElementById('accountNumber').value;
+            const pin = document.getElementById('pin').value;
+
+            // Simple validation (you can replace this with actual validation logic)
+            if (accountNumber === "123456" && pin === "password") {
+                location.href = 'after.html'; // Redirect to the next page
+            } else {
+                alert("Invalid login details. Please try again.");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Left Section with LAINISHA SACCO Details -->
+    <div class="left">
+        <h2>LAINISHA SACCO</h2>
+        <p>Welcome to the official LAINISHA SACCCO login page.</p>
+        <p>Our sacco offers financial services, management, and support for all our members.</p>
+    </div>
+
+    <!-- Right Section with Form -->
+    <div class="form">
+        <div class="h1">
+            <h1>LAINISHA SACCCO Login</h1>
+        </div>
+        <form onsubmit="validateLogin(event)">
+            <div class="Account number">
+                <input type="text" id="accountNumber" placeholder="Account number" required>
+            </div>
+            <div class="password">
+                <input type="password" id="pin" placeholder="Enter pin" required>
+            </div>
+            <div class="button">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        <div class="remember">
+            <a href="#">Remember Me</a>
+        </div>
+        <div class="icons">
+            <a href="https://www.instagram.com/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://wa.me/" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAINISHA SACCO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General page styling */
+        body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            background-color: green;
+            padding: 20px;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Left Section */
+        .left-section {
+            width: 40%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .left-section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .left-section p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .left-section a {
+            color: yellow;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .left-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Right Section (Form Container) */
+        .right-section {
+            width: 50%;
+            padding: 20px;
+            background: yellow;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            color: black;
+        }
+
+        .form-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .form {
+            display: none;
+        }
+
+        .form.active {
+            display: block;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form input {
+            width: 80%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        form button {
+            background: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        form button:hover {
+            background: darkgray;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .icons a {
+            margin: 0 10px;
+            color: black;
+            font-size: 24px;
+        }
+
+        .icons a:hover {
+            color: blue;
+        }
+
+        .toggle-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .toggle-link a {
+            color: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Left Section with Logo and Lainisha Sacco Info -->
+    <div class="left-section">
+        <div class="logo-container">
+            <img src="photos/logo.png" alt="Lainisha Sacco Logo" class="logo">
+            <h2>LAINISHA SACCO</h2>
+        </div>
+        <p>Lainisha Sacco is a member-driven financial cooperative offering savings and credit services. Our goal is to empower members financially by providing accessible, affordable, and innovative financial solutions.</p>
+        <p>We pool financial resources and offer responsive products and services that promote socio-economic growth. Guided by integrity, professionalism, and transparency, Lainisha Sacco helps members achieve financial independence.</p>
+        <p>For more details, visit <a href="https://lainishasacco.co.ke" target="_blank">Lainisha Sacco's official website</a>.</p>
+    </div>
+
+    <!-- Right Section with Form -->
+    <div class="right-section">
+        <div class="form-container">
+            <!-- Login Form -->
+            <div class="form active" id="login-form">
+                <h1>LAINISHA SACCO Login</h1>
+                <form action="login.php" method="POST">
+                    <input type="text" name="account_number" placeholder="Account number" required>
+                    <input type="password" name="pin" placeholder="Enter pin" required>
+                    <button type="submit">Login</button>
+                </form>
+                <div class="toggle-link">
+                    <p>Don't have an account? <a onclick="toggleForms()">Register here</a></p>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="form" id="register-form">
+                <h1>Register for LAINISHA SACCO</h1>
+                <form action="register_process.php" method="POST">
+                    <input type="text" name="first_name" placeholder="First Name" required>
+                    <input type="text" name="middle_name" placeholder="Middle Name" required>
+                    <input type="text" name="last_name" placeholder="Last Name" required>
+                    <input type="text" name="id_number" placeholder="ID Number" required>
+                    <input type="text" name="phone_number" placeholder="Phone Number" required>
+                    <input type="text" name="place_of_residence" placeholder="Place of Residence" required>
+                    <button type="submit">Register</button>
+                </form>
+                <div class="toggle-link">
+                    <p>Already have an account? <a onclick="toggleForms()">Login here</a></p>
+                </div>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="icons">
+                <a href="https://www.instagram.com/lainishasacco" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com/lainishasacco" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://wa.me/254712345678" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            document.getElementById('login-form').classList.toggle('active');
+            document.getElementById('register-form').classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lainisha Sacco Society Ltd - Account Reactivation</title>
+    <style>
+        /* Basic styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(to right, #a8d08d, #f9e44f); /* Green to Yellow gradient */
+        }
+
+        /* Menu styling */
+        .menu {
+            background: linear-gradient(to right, #a8d08d, #f9e44f);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .menu a {
+            display: inline-block;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .menu a:hover {
+            background-color: #FFCC00; /* Yellow on hover */
+            color: white;
+        }
+
+        /* Form styling */
+        .form-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: linear-gradient(to right, #a8d08d, #f9e44f);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #003366; /* Dark blue for headings */
+        }
+
+        .form-container label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-container input[type="text"], .form-container input[type="number"], .form-container input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container .submit-btn {
+            background-color: #003366;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Initially hidden */
+        }
+
+        .form-container .submit-btn:hover {
+            background-color: #FF6600; /* Greenish-yellow hover */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Slide-in animation */
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s forwards; /* Animation properties */
+        }
+
+        /* Checkmark styling */
+        #otp-confirmation {
+            color: green;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        /* Signature pad styling */
+        #signature-pad {
+            border: 1px solid #ccc;
+            width: 100%;
+            height: 150px;
+            position: relative;
+            margin: 10px 0;
+        }
+
+        #signature-pad canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        #clear-signature {
+            margin-top: 10px;
+            background-color: #FF6600;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top menu -->
+    <div class="menu">
+        <a href="home.html">Home</a>
+        <a href="after.html">Account Activation</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <!-- Account Reactivation Form -->
+    <div class="form-container slide-in">
+        <h2>Account Reactivation Request</h2>
+        <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+            <!-- Account Number Section -->
+            <label for="account-number">RE: REACTIVATION OF ACCOUNT NUMBER</label>
+            <input type="text" id="account-number" name="account-number" placeholder="Enter your account number" class="account-number-field" maxlength="15" onkeypress="return isNumberKey(event)">
+            <p>If you do not remember your account number, please select the "I don't remember my account number" option below.</p>
+            <label>
+                <input type="radio" name="account-reminder" id="remember-account" value="NA" onclick="toggleAccountField(true)"> I don't remember my account number
+            </label>
+            <label>
+                <input type="radio" name="account-reminder" id="dont-remember-account" value="remember" onclick="toggleAccountField(false)"> I remember my account number
+            </label>
+
+            <!-- Phone Number Section -->
+            <div id="phone-number-section">
+                <label for="phone-number">Enter the phone number registered to your account</label>
+                <input type="text" id="phone-number" name="phone-number" placeholder="Enter your registered phone number" required oninput="validatePhoneNumber()">
+            </div>
+            
+            <!-- Request OTP Button -->
+            <button type="button" class="otp-btn" id="request-otp-btn" onclick="showOtpSection()">Request OTP</button>
+
+            <!-- OTP Section (Initially Hidden) -->
+            <div id="otp-section" class="hidden">
+                <label for="otp">Enter OTP</label>
+                <input type="text" id="otp" name="otp" placeholder="Enter the OTP sent to your phone" required oninput="validateOtp()">
+                
+                <!-- Confirm OTP Button -->
+                <button type="button" class="submit-btn" id="confirm-otp-btn" onclick="confirmOtp()">Confirm OTP</button>
+                
+                <!-- Checkmark and Confirmation Message (Initially Hidden) -->
+                <div id="otp-confirmation" class="hidden">
+                    ✔️ Number Confirmed!
+                </div>
+            </div>
+
+            <!-- Remaining Form Fields (Initially Hidden) -->
+            <div id="remaining-fields" class="hidden">
+                <p>I/We hereby request that MY/OUR above account which is inactive/dormant be reactivated.</p>
+
+                                <label for="account-holder-name">Account Holder's Name</label>
+                <input type="text" id="account-holder-name" name="account-holder-name" placeholder="Enter account holder's name" required onkeypress="return isLetterKey(event)">
+
+                <label for="id-number">ID Number</label>
+                <input type="text" id="id-number" name="id-number" placeholder="Enter your ID number" required onkeypress="return isNumberKey(event)">
+
+                <label for="last-transaction-amount">Last Transaction Amount (KSH)</label>
+                <input type="text" id="last-transaction-amount" name="last-transaction-amount" placeholder="Enter last transaction amount" required onkeypress="return isNumberKey(event)">
+
+                <label for="reason-dormancy">Reason Account is Dormant/Inactive</label>
+                <input type="text" id="reason-dormancy" name="reason-dormancy" placeholder="Enter your reason (max 50 characters)" maxlength="50 required">
+
+                <p>When reactivated, I/We shall ensure that the same is operated as per the SACCO requirements.</p>
+
+                <label for="authorized-signatory">Authorized Signatory as per SACCO Mandate</label>
+                <div id="signature-pad">
+                    <canvas id="signature-canvas"></canvas>
+                </div>
+                <button type="button" id="clear-signature" onclick="clearSignature()">Clear Signature</button>
+
+                <label for="national-id-upload">Upload National ID</label>
+                <input type="file" id="national-id-upload" name="national-id-upload" accept="image/*" required>
+
+                <label for="signature-upload">Upload Signature</label>
+                <input type="file" id="signature-upload" name="signature-upload" accept="image/*" required>
+
+                <p>Pay KSH 150 for activation:</p>
+                <button type="button" class="payment-btn" onclick="showSubmitButton()">Pay KSH 150</button>
+
+                <!-- Submit Button (Initially Hidden) -->
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Function to toggle account number field visibility based on radio button selection
+        function toggleAccountField(isNa) {
+            const accountNumberField = document.querySelector('.account-number-field');
+            const rememberRadio = document.getElementById('dont-remember-account');
+            const naRadio = document.getElementById('remember-account');
+
+            if (isNa) {
+                accountNumberField.classList.add('hidden');
+                rememberRadio.checked = false; // Uncheck the other radio button
+            } else {
+                accountNumberField.classList.remove('hidden');
+                naRadio.checked = false; // Uncheck the other radio button
+            }
+        }
+
+        // Function to validate phone number and show/hide the OTP button
+        function validatePhoneNumber() {
+            const phoneNumberInput = document.getElementById('phone-number');
+            const otpButton = document.getElementById('request-otp-btn');
+            const phoneNumber = phoneNumberInput.value;
+
+            // Check if the phone number is exactly 10 digits
+            if (/^\d{10}$/.test(phoneNumber)) {
+                otpButton.style.display = 'inline-block'; // Show the OTP button
+            } else {
+                otpButton.style.display = 'none'; // Hide the OTP button
+            }
+        }
+
+        // Function to show the OTP section
+        function showOtpSection() {
+            document.getElementById('otp-section').classList.remove('hidden'); // Show OTP section
+        }
+
+        // Function to validate OTP input and show/hide the Confirm OTP button
+        function validateOtp() {
+            const otpInput = document.getElementById('otp');
+            const confirmOtpButton = document.getElementById('confirm-otp-btn');
+            const otpValue = otpInput.value;
+
+            // Show the Confirm OTP button only if the OTP is exactly 6 digits
+            if (otpValue.length === 6) {
+                confirmOtpButton.style.display = 'inline-block'; // Show Confirm OTP button
+            } else {
+                confirmOtpButton.style.display = 'none'; // Hide Confirm OTP button
+            }
+        }
+
+        // Function to confirm OTP and show remaining fields
+        function confirmOtp() {
+            const otpInput = document.getElementById('otp');
+            const otpValue = otpInput.value;
+
+            // For demonstration, let's assume the correct OTP is "123456"
+            const correctOtp = "123456"; // Replace this with your actual OTP validation logic
+
+            if (otpValue === correctOtp) {
+                // Show the confirmation message
+                document.getElementById('otp-confirmation').classList.remove('hidden');
+                
+                // Hide the phone number section
+                document.getElementById('phone-number-section').classList.add('hidden');
+
+                // Hide the entire OTP section
+                document.getElementById('otp-section').classList.add('hidden');
+
+                // Hide the Request OTP button
+                document.getElementById('request-otp-btn').classList.add('hidden');
+
+                // Show the remaining fields
+                document.getElementById('remaining-fields').classList.remove('hidden');
+            } else {
+                // Change the background color of the OTP input to red
+                otpInput.style.backgroundColor = 'red';
+                alert("Invalid OTP. Please try again.");
+            }
+        }
+
+        // Function to show the Submit Request button after payment
+        function showSubmitButton() {
+            const submitButton = document.querySelector('.submit-btn');
+            submitButton.style.display = 'inline-block'; // Make the submit button visible
+        }
+
+        // Function to check if an element is in the viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Function to add the slide-in class when elements are in view
+        function handleScroll() {
+            const elements = document.querySelectorAll('.slide-in');
+            elements.forEach((el) => {
+                if (isElementInViewport(el)) {
+                    el.classList.add('slide-in'); // Add the class to trigger animation
+                }
+            });
+        }
+
+        // Event listener for scroll
+        window.addEventListener('scroll', handleScroll);
+
+                // Initial check in case elements are already in view
+        handleScroll();
+
+        // Function to allow only letters in the account holder's name
+        function isLetterKey(evt) {
+            const charCode = (evt.which) ? evt.which : evt.keyCode;
+            return (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode === 32; // Allow letters and space
+        }
+
+        // Function to allow only numbers
+        function isNumberKey(evt) {
+            const charCode = (evt.which) ? evt.which : evt.keyCode;
+            return (charCode >= 48 && charCode <= 57); // Allow only numbers
+        }
+
+        // Signature pad functionality
+        const canvas = document.getElementById('signature-canvas');
+        const ctx = canvas.getContext('2d');
+        let drawing = false;
+
+        // Set canvas dimensions
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+
+        // Start drawing
+        canvas.addEventListener('mousedown', (e) => {
+            drawing = true;
+            ctx.beginPath();
+            ctx.moveTo(e.offsetX, e.offsetY);
+        });
+
+        // Draw on canvas
+        canvas.addEventListener('mousemove', (e) => {
+            if (drawing) {
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+            }
+        });
+
+        // Stop drawing
+        canvas.addEventListener('mouseup', () => {
+            drawing = false;
+            ctx.closePath();
+        });
+
+        // Clear the signature pad
+        function clearSignature() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    </script>
+
+</body>
+</html>
